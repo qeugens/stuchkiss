@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_12_11_194641) do
+ActiveRecord::Schema[7.0].define(version: 2022_12_12_154619) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -36,6 +36,24 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_11_194641) do
     t.index ["user_id"], name: "index_items_on_user_id"
   end
 
+  create_table "tags", force: :cascade do |t|
+    t.string "title"
+    t.boolean "ispublic"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "user_id", null: false
+    t.index ["user_id"], name: "index_tags_on_user_id"
+  end
+
+  create_table "tagselecteds", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "tag_id", null: false
+    t.bigint "item_id", null: false
+    t.index ["item_id"], name: "index_tagselecteds_on_item_id"
+    t.index ["tag_id"], name: "index_tagselecteds_on_tag_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "username"
     t.string "email"
@@ -49,4 +67,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_11_194641) do
   add_foreign_key "collections", "users"
   add_foreign_key "items", "collections"
   add_foreign_key "items", "users"
+  add_foreign_key "tags", "users"
+  add_foreign_key "tagselecteds", "items"
+  add_foreign_key "tagselecteds", "tags"
 end

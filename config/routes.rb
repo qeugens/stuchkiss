@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+  get 'tagselecteds/index'
+  get 'tagselecteds/create'
+  get 'tagselecteds/update'
+  get 'tagselecteds/destroy'
+  get 'tags/index'
+  get 'tags/create'
+  get 'tags/update'
+  get 'tags/destroy'
   get 'collections/index'
   get 'collections/create'
   get 'collections/update'
@@ -17,11 +25,10 @@ Rails.application.routes.draw do
   # root "articles#index"
   scope '/api/v1' do
     resources :users
-  end
-  scope '/api/v1' do
     resources :items
-  end
-  scope '/api/v1' do
     resources :collections
+    resources :tags
+    resources :tagselecteds
   end
+  
 end

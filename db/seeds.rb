@@ -6,8 +6,10 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 puts "Start"
+Tagselected.destroy_all
 Item.destroy_all
 Collection.destroy_all
+Tag.destroy_all
 User.destroy_all
 users = User.create([
   {id: 1, username: "John", email: "john@hse.ru", isadmin: false, description: "kiss my ass", avatar: File.open(Rails.root.join('public', 'images', 'обложка.png'))},
@@ -24,5 +26,16 @@ items = Item.create([
   {id: 2, geotag: "homki", note: "joh", date: "11/09/2001", image: File.open(Rails.root.join('public', 'images', 'обложка.png')), collection_id: 2, user_id: 2},
   {id: 3, geotag: "homki", note: "joh", date: "11/09/2001", image: File.open(Rails.root.join('public', 'images', 'обложка.png')), collection_id: 3, user_id: 3}
   ])
+tags = Tag.create([
+  {id: 1, title: "marble", ispublic: true, user_id: 1},
+  {id: 2, title: "marble", ispublic: true, user_id: 1},
+  {id: 3, title: "marble", ispublic: true, user_id: 1}
+  ])
+tagselecteds = Tagselected.create([
+  {id: 1, tag_id: 1, item_id: 1},
+  {id: 2, tag_id: 2, item_id: 2},
+  {id: 3, tag_id: 3, item_id: 3}
+  ])
+
 
 puts "End"
