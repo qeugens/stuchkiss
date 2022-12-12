@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_12_12_154619) do
+ActiveRecord::Schema[7.0].define(version: 2022_12_12_160232) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -34,6 +34,15 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_12_154619) do
     t.bigint "user_id", null: false
     t.index ["collection_id"], name: "index_items_on_collection_id"
     t.index ["user_id"], name: "index_items_on_user_id"
+  end
+
+  create_table "subscriptions", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "user_id", null: false
+    t.bigint "collection_id", null: false
+    t.index ["collection_id"], name: "index_subscriptions_on_collection_id"
+    t.index ["user_id"], name: "index_subscriptions_on_user_id"
   end
 
   create_table "tags", force: :cascade do |t|
@@ -67,6 +76,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_12_154619) do
   add_foreign_key "collections", "users"
   add_foreign_key "items", "collections"
   add_foreign_key "items", "users"
+  add_foreign_key "subscriptions", "collections"
+  add_foreign_key "subscriptions", "users"
   add_foreign_key "tags", "users"
   add_foreign_key "tagselecteds", "items"
   add_foreign_key "tagselecteds", "tags"

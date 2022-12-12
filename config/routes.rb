@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'subscriptions/index'
+  get 'subscriptions/create'
+  get 'subscriptions/update'
+  get 'subscriptions/destroy'
   get 'tagselecteds/index'
   get 'tagselecteds/create'
   get 'tagselecteds/update'
@@ -29,6 +33,7 @@ Rails.application.routes.draw do
     resources :collections
     resources :tags
     resources :tagselecteds
+    resources :subscriptions
   end
-  
+
 end
