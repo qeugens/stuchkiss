@@ -6,6 +6,7 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 puts "Start"
+Like.destroy_all
 Subscription.destroy_all
 Tagselected.destroy_all
 Item.destroy_all
@@ -41,6 +42,11 @@ subscriptions = Subscription.create([
   {id: 1, user_id: 1, collection_id: 1},
   {id: 2, user_id: 2, collection_id: 1},
   {id: 3, user_id: 3, collection_id: 1}
+  ])
+likes = Like.create([
+  {id: 1, user_id: 1, item_id: 1},
+  {id: 2, user_id: 2, item_id: 2},
+  {id: 3, user_id: 3, item_id: 3}
   ])
 
 

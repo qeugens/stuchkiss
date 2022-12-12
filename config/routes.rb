@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'likes/index'
+  get 'likes/create'
+  get 'likes/update'
+  get 'likes/destroy'
   get 'subscriptions/index'
   get 'subscriptions/create'
   get 'subscriptions/update'
@@ -34,6 +38,7 @@ Rails.application.routes.draw do
     resources :tags
     resources :tagselecteds
     resources :subscriptions
+    resources :likes
   end
 
 end
