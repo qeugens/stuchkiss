@@ -2,7 +2,7 @@ class ItemsController < ApplicationController
   def index
     items = Item.all
     if items
-      render json: {status: "SUCCESS", message: "All items ready", data: items}, status: :ok
+      render json: items
     else
       render json: items.errors, status: :bad_request
     end
