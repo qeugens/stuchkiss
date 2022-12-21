@@ -23,9 +23,9 @@ collections = Collection.create([
   {id: 3, title: "Катера", description: "Лодки, которыея нахожу в Сочи", user_id: 1}
   ])
 items = Item.create([
-  {id: 1, geotag: "Новосибирск, Ленинский район", note: "Были с бойфрендом в парке аттракционов", date: "8/10/2022", image: URI.open("https://github.com/qeugens/stuchkiss/blob/main/public/images/%D0%BE%D0%B1%D0%BB%D0%BE%D0%B6%D0%BA%D0%B0.png?raw=true"), collection_id: 1, user_id: 1},
-  {id: 2, geotag: "Уфа, Советская площадь", note: "Прошлась в перерыве по центру и увидела знак", date: "22/12/2022", image: URI.open("https://github.com/qeugens/stuchkiss/blob/main/public/images/%D0%BE%D0%B1%D0%BB%D0%BE%D0%B6%D0%BA%D0%B0.png?raw=true"), collection_id: 2, user_id: 1},
-  {id: 3, geotag: "Сочи, Морской порт", note: "Гуляли с семьей и увидели маленький катерок", date: "2/09/2001", image: URI.open("https://github.com/qeugens/stuchkiss/blob/main/public/images/%D0%BE%D0%B1%D0%BB%D0%BE%D0%B6%D0%BA%D0%B0.png?raw=true"), collection_id: 3, user_id: 1}
+  {id: 1, geotag: "Новосибирск, Ленинский район", note: "Были с бойфрендом в парке аттракционов", date: "8/10/2022", image: URI.open("https://github.com/qeugens/stuchkiss/blob/main/public/images/novosibirsk.png?raw=true"), collection_id: 1, user_id: 1},
+  {id: 2, geotag: "Уфа, Советская площадь", note: "Прошлась в перерыве по центру и увидела знак", date: "22/12/2022", image: URI.open("https://github.com/qeugens/stuchkiss/blob/main/public/images/ufa.png?raw=true"), collection_id: 2, user_id: 1},
+  {id: 3, geotag: "Сочи, Морской порт", note: "Гуляли с семьей и увидели маленький катерок", date: "2/09/2001", image: URI.open("https://github.com/qeugens/stuchkiss/blob/main/public/images/sochi.png?raw=true"), collection_id: 3, user_id: 1}
   ])
 tags = Tag.create([
   {id: 1, title: "Машины", ispublic: true, user_id: 1},
