@@ -15,7 +15,7 @@ Collection.destroy_all
 Tag.destroy_all
 User.destroy_all
 users = User.create([
-  {id: 1, username: "karinamulk", email: "karinamulk@hse.ru", isadmin: false, description: "Дизайнер, связаться со мной в тг @karinamulk", avatar: File.open(Rails.root.join('public', 'images', 'обложка.png'))}
+  {id: 1, username: "karinamulk", email: "karinamulk@hse.ru", isadmin: false, description: "Дизайнер, связаться со мной в тг @karinamulk", avatar: File.open(Rails.root.join('public', 'images', 'avatar.png'))}
   ])
 collections = Collection.create([
   {id: 1, title: "Машины", description: "Красивые механизмы, машины и штуки с моторчиком", user_id: 1},
