@@ -18,9 +18,9 @@ users = User.create([
   {id: 1, username: "karinamulk", email: "karinamulk@hse.ru", isadmin: false, description: "Дизайнер, связаться со мной в тг @karinamulk", avatar: File.open(Rails.root.join('public', 'images', 'avatar.png'))}
   ])
 collections = Collection.create([
-  {id: 1, title: "Телефончики", description: "Девайс моих друзей", user_id: 1, cover: URI.open("https://github.com/qeugens/stuchkiss/blob/main/public/images/novosibirsk.png?raw=true")},
-  {id: 2, title: "Стикеры", description: "Стикеры, которые я нахожу в родном городе", user_id: 1, cover: URI.open("https://github.com/qeugens/stuchkiss/blob/main/public/images/novosibirsk.png?raw=true")},
-  {id: 3, title: "Упаковка", description: "Красивые упаковки из магазинов", user_id: 1, cover: URI.open("https://github.com/qeugens/stuchkiss/blob/main/public/images/novosibirsk.png?raw=true")}
+  {id: 1, title: "Телефончики", description: "Девайс моих друзей", user_id: 1, cover: URI.open("https://github.com/qeugens/stuchkiss/blob/main/public/images/telephonchiki.png?raw=true")},
+  {id: 2, title: "Стикеры", description: "Стикеры, которые я нахожу в родном городе", user_id: 1, cover: URI.open("https://github.com/qeugens/stuchkiss/blob/main/public/images/stikeri.png?raw=true")},
+  {id: 3, title: "Упаковка", description: "Красивые упаковки из магазинов", user_id: 1, cover: URI.open("https://github.com/qeugens/stuchkiss/blob/main/public/images/upakovka.png?raw=true")}
   ])
 items = Item.create([
   {id: 1, geotag: "Новосибирск, Ленинский район", note: "Были с бойфрендом в парке аттракционов", date: "8/10/2022", image: URI.open("https://github.com/qeugens/stuchkiss/blob/main/public/images/novosibirsk.png?raw=true"), collection_id: 1, user_id: 1},
