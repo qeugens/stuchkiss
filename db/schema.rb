@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_12_22_175803) do
+ActiveRecord::Schema[7.0].define(version: 2023_02_09_142515) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -19,16 +19,16 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_22_175803) do
     t.string "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "user_id", null: false
     t.string "cover"
+    t.bigint "user_id", null: false
     t.index ["user_id"], name: "index_collections_on_user_id"
   end
 
   create_table "favourites", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "user_id", null: false
     t.bigint "item_id", null: false
+    t.bigint "user_id", null: false
     t.index ["item_id"], name: "index_favourites_on_item_id"
     t.index ["user_id"], name: "index_favourites_on_user_id"
   end
@@ -49,8 +49,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_22_175803) do
   create_table "likes", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "user_id", null: false
     t.bigint "item_id", null: false
+    t.bigint "user_id", null: false
     t.index ["item_id"], name: "index_likes_on_item_id"
     t.index ["user_id"], name: "index_likes_on_user_id"
   end
@@ -58,8 +58,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_22_175803) do
   create_table "subscriptions", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "user_id", null: false
     t.bigint "collection_id", null: false
+    t.bigint "user_id", null: false
     t.index ["collection_id"], name: "index_subscriptions_on_collection_id"
     t.index ["user_id"], name: "index_subscriptions_on_user_id"
   end
@@ -83,13 +83,21 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_22_175803) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "username"
-    t.string "email"
-    t.boolean "isadmin"
-    t.string "description"
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "jti"
+    t.string "username"
     t.string "avatar"
+    t.string "description"
+    t.boolean "isadmin"
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["jti"], name: "index_users_on_jti"
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
   add_foreign_key "collections", "users"

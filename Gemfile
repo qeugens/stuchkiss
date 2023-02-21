@@ -29,6 +29,16 @@ gem "jbuilder"
 
 gem 'carrierwave', '~> 2.0'
 
+gem 'devise'
+
+gem 'devise-jwt'
+
+gem "rack-cors"
+
+# gem 'sqlite3'
+
+# gem 'sqlite3-ruby', :require => 'sqlite3'
+
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
 

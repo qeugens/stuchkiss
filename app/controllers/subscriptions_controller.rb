@@ -27,7 +27,7 @@ class SubscriptionsController < ApplicationController
 
   private
   def subscription_param
-    params.require(:subscription).permit(:user_id, :collection_id)
+    params.require(:subscription).permit(:collection_id, :user_id)
   end
 
 end
