@@ -8,4 +8,6 @@ class User < ApplicationRecord
   has_many :likes, dependent: :destroy
   has_many :subscriptions, dependent: :destroy
   has_many :tags, dependent: :destroy
+  has_many :reportItems, dependent: :destroy
+  has_many :reportits, dependent: :destroy
 end

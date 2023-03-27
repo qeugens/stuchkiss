@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_02_09_142515) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_27_194140) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -53,6 +53,28 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_09_142515) do
     t.bigint "user_id", null: false
     t.index ["item_id"], name: "index_likes_on_item_id"
     t.index ["user_id"], name: "index_likes_on_user_id"
+  end
+
+  create_table "report_items", force: :cascade do |t|
+    t.bigint "item_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "reason"
+    t.string "number"
+    t.index ["item_id"], name: "index_report_items_on_item_id"
+    t.index ["user_id"], name: "index_report_items_on_user_id"
+  end
+
+  create_table "reportits", force: :cascade do |t|
+    t.bigint "item_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "number"
+    t.string "reason"
+    t.index ["item_id"], name: "index_reportits_on_item_id"
+    t.index ["user_id"], name: "index_reportits_on_user_id"
   end
 
   create_table "subscriptions", force: :cascade do |t|
@@ -107,6 +129,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_09_142515) do
   add_foreign_key "items", "users"
   add_foreign_key "likes", "items"
   add_foreign_key "likes", "users"
+  add_foreign_key "report_items", "items"
+  add_foreign_key "report_items", "users"
+  add_foreign_key "reportits", "items"
+  add_foreign_key "reportits", "users"
   add_foreign_key "subscriptions", "collections"
   add_foreign_key "subscriptions", "users"
   add_foreign_key "tags", "users"

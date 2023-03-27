@@ -76,5 +76,7 @@ Rails.application.routes.draw do
     resources :subscriptions
     resources :likes
     resources :favourites
+    resources :reportitems
+    resources :reportits
   end
 end

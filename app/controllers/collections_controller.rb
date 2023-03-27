@@ -1,4 +1,6 @@
 class CollectionsController < ApplicationController
+  before_action :set_collection, only: %i[ update destroy ]
+  before_action :authenticate_user!, except: [:index]
   def index
     collections = Collection.all
     if collections
@@ -9,8 +11,12 @@ class CollectionsController < ApplicationController
   end
 
   def create
-    collection = Collection.create(collection_param)
-    render json: collection
+    @collection = Collection.new(collection_param.merge(user_id: current_user.id))
+    if @collection.save
+    render json: @collection
+    else
+      render json: @collection.errors
+    end
   end
 
   def update
@@ -29,5 +35,8 @@ class CollectionsController < ApplicationController
   def collection_param
     params.require(:collection).permit(:title, :description, :cover, :user_id)
   end
+  def set_collection
+      @collection = Collection.find(params[:id])
+    end
 
 end

@@ -67,6 +67,16 @@ class UsersController < ApplicationController
         render json: @following
       end
     end
+
+    def current
+      if current_user
+        render json: current_user
+        else
+          render json: {message: "You are not logged"} 
+      end
+
+    end
+
   
     def update_info
       @user = User.find(params[:id])
