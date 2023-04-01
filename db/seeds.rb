@@ -10,7 +10,7 @@ puts "Start"
 # Like.destroy_all
 # Subscription.destroy_all
 # Tagselected.destroy_all
-# Item.destroy_all
+Item.destroy_all
 # Collection.destroy_all
 # Tag.destroy_all
 # User.destroy_all
