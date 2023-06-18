@@ -63,12 +63,6 @@ Rails.application.routes.draw do
   end
   scope '/api/v1' do
     resources :users
-      post 'users/:id/follow', to: "users#follow", as: "follow_user"
-      post 'users/:id/unfollow', to: "users#unfollow", as: "unfollow_user"
-      get 'users/:id/following', :to => "users#following", :as => :following
-      get 'users/:id/followed', :to => "users#followed", :as => :followed
-      get 'users/:id/liked', :to => "users#liked", :as => :liked
-      put 'users/:id/edit', to: "users#update_info"
     resources :items
     resources :collections
     resources :tags
@@ -78,5 +72,6 @@ Rails.application.routes.draw do
     resources :favourites
     resources :reportitems
     resources :reportits
+    resources :reportcols
   end
 end

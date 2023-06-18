@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  mount_uploader :avatar, AvatarUploader
   include Devise::JWT::RevocationStrategies::JTIMatcher
   devise :database_authenticatable, :registerable, :validatable,
          :jwt_authenticatable, :recoverable, :rememberable, jwt_revocation_strategy: self
@@ -10,4 +11,5 @@ class User < ApplicationRecord
   has_many :tags, dependent: :destroy
   has_many :reportItems, dependent: :destroy
   has_many :reportits, dependent: :destroy
+  has_many :reportcols, dependent: :destroy
 end

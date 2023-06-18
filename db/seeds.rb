@@ -9,12 +9,37 @@ puts "Start"
 # Favourite.destroy_all
 # Like.destroy_all
 # Subscription.destroy_all
-# Tagselected.destroy_all
+Tagselected.destroy_all
 Item.destroy_all
-# Collection.destroy_all
-# Tag.destroy_all
-# User.destroy_all
+Collection.destroy_all
+Tag.destroy_all
+User.destroy_all
 Reportit.destroy_all
+Reportcol.destroy_all
+users = User.create([
+  {id: 9, username: "qeugens", email: "qeugens@hse.ru", isadmin: true, description: "я убью себя самого", avatar: URI.open("https://github.com/qeugens/stuchkiss/blob/main/public/images/avatar.png?raw=true"), password: "yourPassWord"}
+  ])
+collections = Collection.create([
+  {id: 1, title: "Телефончики", description: "Девайс моих друзей", user_id: 9, cover: URI.open("https://github.com/qeugens/stuchkiss/blob/main/public/images/ufa.png?raw=true")},
+  {id: 2, title: "Стикеры", description: "Стикеры, которые я нахожу в родном городе", user_id: 9, cover: URI.open("https://github.com/qeugens/stuchkiss/blob/main/public/images/novosibirsk.png?raw=true")},
+  {id: 3, title: "Упаковка", description: "Красивые упаковки из магазинов", user_id: 9, cover: URI.open("https://github.com/qeugens/stuchkiss/blob/main/public/images/sochi.png?raw=true")}
+  ])
+items = Item.create([
+  {id: 5, geotag: "Новосибирск, Ленинский район", note: "Были с бойфрендом в парке аттракционов", date: "8/10/2022", image: URI.open("https://github.com/qeugens/stuchkiss/blob/main/public/images/novosibirsk.png?raw=true"), collection_id: 1, user_id: 9},
+  {id: 6, geotag: "Уфа, Советская площадь", note: "Прошлась в перерыве по центру и увидела знак", date: "22/12/2022", image: URI.open("https://github.com/qeugens/stuchkiss/blob/main/public/images/ufa.png?raw=true"), collection_id: 2, user_id: 9},
+  {id: 7, geotag: "Сочи, Морской порт", note: "Гуляли с семьей и увидели маленький катерок", date: "2/09/2001", image: URI.open("https://github.com/qeugens/stuchkiss/blob/main/public/images/sochi.png?raw=true"), collection_id: 3, user_id: 9}
+  ])
+tags = Tag.create([
+  {id: 1, title: "Машины", ispublic: true, user_id: 9},
+  {id: 2, title: "Рисунки", ispublic: true, user_id: 9},
+  {id: 3, title: "Лодки", ispublic: true, user_id: 9}
+  ])
+tagselecteds = Tagselected.create([
+  {id: 1, tag_id: 1, item_id: 5},
+  {id: 2, tag_id: 2, item_id: 5},
+  {id: 3, tag_id: 3, item_id: 6}
+  ])
+
 # users = User.create([
 #   {id: 4, username: "karinamulk", email: "karinamulk@hse.ru", isadmin: false, description: "Дизайнер, связаться со мной в тг @karinamulk", avatar: File.open(Rails.root.join('public', 'images', 'avatar.png')), password: "yourPassWord"},
 #   {id: 2, username: "hautilus", email: "hautilus@hse.ru", isadmin: false, description: "kiss my ass", avatar: File.open(Rails.root.join('public', 'images', 'avatar.png')), password: "yourPassWord"},
@@ -56,9 +81,15 @@ Reportit.destroy_all
 #   {id: 3, user_id: 4, item_id: 3}
 #   ])
 reportits = Reportit.create([
-  {id: 1, user_id: 9, item_id: 5, number: 'S56-300-M08I', reason: 'Контент для взрослых'},
-  {id: 2, user_id: 9, item_id: 6, number: 'S56-301-M08I', reason: 'Ложная информация'},
-  {id: 3, user_id: 9, item_id: 7, number: 'S56-302-M08I', reason: 'Спам'}
+  {id: 1, user_id: 9, item_id: 5, number: 'S203-030623', reason: 'Контент для взрослых', object:'Фотография'},
+  {id: 2, user_id: 9, item_id: 5, number: 'S203-030623', reason: 'Ложная информация', object:'Tэг'},
+  {id: 3, user_id: 9, item_id: 7, number: 'S203-030623', reason: 'Спам', object:'Описание'}
   ])
+
+reportcols = Reportcol.create([
+  {id: 1, user_id: 9, collection_id: 1, number: 'S203-030623', reason: 'Контент для взрослых', object:'Описание'},
+  {id: 2, user_id: 9, collection_id: 1, number: 'S203-030623', reason: 'Ложная информация', object:'Штучкисы'},
+  {id: 3, user_id: 9, collection_id: 3, number: 'S203-030623', reason: 'Спам', object:'Описание'}
+ ])
 
 puts "End"

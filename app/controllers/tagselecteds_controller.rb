@@ -1,8 +1,8 @@
 class TagselectedsController < ApplicationController
   def index
-    tagselecteds = Tagselected.all
+    tagselecteds = Tagselected.includes(:tag, :item).all
     if tagselecteds
-      render json: {status: "SUCCESS", message: "All tagselecteds ready", data: tagselecteds}, status: :ok
+      render json: {status: "SUCCESS", message: "All tagselecteds ready", data: tagselecteds.as_json(include: [:tag, :item])}, status: :ok
     else
       render json: tagselecteds.errors, status: :bad_request
     end

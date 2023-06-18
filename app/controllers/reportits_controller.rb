@@ -1,10 +1,10 @@
 class ReportitsController < ApplicationController
-  before_action :set_collection, only: %i[ update destroy ]
-  before_action :authenticate_user!, except: [:index]
+  # before_action :set_collection, only: %i[ update destroy ]
+  # before_action :authenticate_user!, except: [:index]
   def index
-    reportits = Reportit.all
+    reportits = Reportit.includes(:item, :user).all
     if reportits
-      render json: {status: "SUCCESS", message: "All collections ready", data: reportits}, status: :ok
+      render json: { status: "SUCCESS", message: "All reportits ready", data: reportits.as_json(include: [:item, :user]) }, status: :ok
     else
       render json: reportits.errors, status: :bad_request
     end
@@ -21,9 +21,12 @@ class ReportitsController < ApplicationController
 
   def update
     reportit = Reportit.find(params[:id])
-    reportit.update(reportit_param)
+          if reportit.update(reportit_param)
     render json: reportit
-  end
+          else
+              render json: reportit.errors, status: :unprocessable_entity
+          end
+        end
 
   def destroy
     reportit = Reportit.find(params[:id])
@@ -33,7 +36,7 @@ class ReportitsController < ApplicationController
 
   private
   def reportit_param
-    params.require(:reportit).permit(:number, :reason, :user_id, :item_id)
+    params.require(:reportit).permit(:number, :reason, :user_id, :item_id, :object, :status)
   end
   def set_reportit
       @reportit = Reportit.find(params[:id])

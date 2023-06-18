@@ -1,0 +1,2 @@
+module ReportcolsHelper
+end

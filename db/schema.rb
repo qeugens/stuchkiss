@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_27_194140) do
+ActiveRecord::Schema[7.0].define(version: 2023_06_17_190846) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -21,6 +21,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_27_194140) do
     t.datetime "updated_at", null: false
     t.string "cover"
     t.bigint "user_id", null: false
+    t.boolean "blocked", default: false
     t.index ["user_id"], name: "index_collections_on_user_id"
   end
 
@@ -42,6 +43,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_27_194140) do
     t.string "image"
     t.bigint "collection_id", null: false
     t.bigint "user_id", null: false
+    t.boolean "blocked", default: false
     t.index ["collection_id"], name: "index_items_on_collection_id"
     t.index ["user_id"], name: "index_items_on_user_id"
   end
@@ -66,6 +68,19 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_27_194140) do
     t.index ["user_id"], name: "index_report_items_on_user_id"
   end
 
+  create_table "reportcols", force: :cascade do |t|
+    t.string "number"
+    t.string "reason"
+    t.string "object"
+    t.bigint "user_id", null: false
+    t.bigint "collection_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "status", default: "new"
+    t.index ["collection_id"], name: "index_reportcols_on_collection_id"
+    t.index ["user_id"], name: "index_reportcols_on_user_id"
+  end
+
   create_table "reportits", force: :cascade do |t|
     t.bigint "item_id", null: false
     t.bigint "user_id", null: false
@@ -73,6 +88,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_27_194140) do
     t.datetime "updated_at", null: false
     t.string "number"
     t.string "reason"
+    t.string "object"
+    t.string "status", default: "new"
     t.index ["item_id"], name: "index_reportits_on_item_id"
     t.index ["user_id"], name: "index_reportits_on_user_id"
   end
@@ -131,6 +148,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_27_194140) do
   add_foreign_key "likes", "users"
   add_foreign_key "report_items", "items"
   add_foreign_key "report_items", "users"
+  add_foreign_key "reportcols", "collections"
+  add_foreign_key "reportcols", "users"
   add_foreign_key "reportits", "items"
   add_foreign_key "reportits", "users"
   add_foreign_key "subscriptions", "collections"
