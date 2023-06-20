@@ -27,7 +27,7 @@ users = User.create([
   {id: 7, username: "m1d45", email: "m1d45@hse.ru", isadmin: false, description: "куратор шд", avatar: URI.open("https://github.com/qeugens/stuchkiss/blob/main/public/images/avatarvadim.png?raw=true"), password: "yourPassWord7"}
   ])
 collections = Collection.create([
-  {id: 1, title: "Телефончики", description: "Девайс моих друзей", user_id: 1, cover: URI.open("https://github.com/qeugens/stuchkiss/blob/main/public/images/ufa.png?raw=true")},
+  {id: 1, title: "Телефончики", description: "Девайс моих друзей", user_id: 1, cover: URI.open("https://github.com/qeugens/stuchkiss/blob/main/public/images/item1.png?raw=true")},
   {id: 2, title: "Стикеры", description: "Стикеры, которые я нахожу в родном городе", user_id: 2, cover: URI.open("https://github.com/qeugens/stuchkiss/blob/main/public/images/novosibirsk.png?raw=true")},
   {id: 3, title: "Упаковка", description: "Красивые упаковки из магазинов", user_id: 3, cover: URI.open("https://github.com/qeugens/stuchkiss/blob/main/public/images/sochi.png?raw=true")}
   ])
