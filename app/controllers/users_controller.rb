@@ -1,10 +1,13 @@
 class UsersController < ApplicationController
     before_action :authenticate_user!, except: [:index, :show, :following, :followed, :liked]
-  
+
     def index
-      @users = User.all
-  
-      render json: @users
+      users = User.all
+      if users
+        render json: {status: "SUCCESS", message: "All users ready", data: users}, status: :ok
+      else
+        render json: users.errors, status: :bad_request
+      end
     end
   
     def show

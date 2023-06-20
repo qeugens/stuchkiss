@@ -17,22 +17,29 @@ User.destroy_all
 Reportit.destroy_all
 Reportcol.destroy_all
 users = User.create([
-  {id: 9, username: "qeugens", email: "qeugens@hse.ru", isadmin: true, description: "я убью себя самого", avatar: URI.open("https://github.com/qeugens/stuchkiss/blob/main/public/images/mashaavatar.png?raw=true"), password: "yourPassWord"}
+  {id: 8, username: "qeugens", email: "qeugens@hse.ru", isadmin: true, description: "я убью себя самого", avatar: URI.open("https://github.com/qeugens/stuchkiss/blob/main/public/images/mashaavatar.png?raw=true"), password: "yourPassWord"},
+  {id: 1, username: "hautilusthehuman", email: "hautilusthehuman@hse.ru", isadmin: false, description: "для красоты", avatar: URI.open("https://github.com/qeugens/stuchkiss/blob/main/public/images/avatardanil.png?raw=true"), password: "yourPassWord1"},
+  {id: 2, username: "thedoglady", email: "thedoglady@hse.ru", isadmin: false, description: "люблю собак", avatar: URI.open("https://github.com/qeugens/stuchkiss/blob/main/public/images/avatarleah.png?raw=true"), password: "yourPassWord2"},
+  {id: 3, username: "sugumisu", email: "sugumisu@hse.ru", isadmin: false, description: "у меня красивая ава", avatar: URI.open("https://github.com/qeugens/stuchkiss/blob/main/public/images/avatarpolina.png?raw=true"), password: "yourPassWord3"},
+  {id: 4, username: "esdnt", email: "esdnt@hse.ru", isadmin: false, description: "я зайка", avatar: URI.open("https://github.com/qeugens/stuchkiss/blob/main/public/images/avatardanya.png?raw=true"), password: "yourPassWord4"},
+  {id: 5, username: "nadyakitt", email: "nadyakitt@hse.ru", isadmin: false, description: "у меня самая большая коллекция жаб", avatar: URI.open("https://github.com/qeugens/stuchkiss/blob/main/public/images/avatarnadya.png?raw=true"), password: "yourPassWord5"},
+  {id: 6, username: "ttovarisch", email: "ttovarisch@hse.ru", isadmin: false, description: "гений кода", avatar: URI.open("https://github.com/qeugens/stuchkiss/blob/main/public/images/avatarpolinas.png?raw=true"), password: "yourPassWord6"},
+  {id: 7, username: "m1d45", email: "m1d45@hse.ru", isadmin: false, description: "куратор шд", avatar: URI.open("https://github.com/qeugens/stuchkiss/blob/main/public/images/avatarvadim.png?raw=true"), password: "yourPassWord7"}
   ])
 collections = Collection.create([
-  {id: 1, title: "Телефончики", description: "Девайс моих друзей", user_id: 9, cover: URI.open("https://github.com/qeugens/stuchkiss/blob/main/public/images/ufa.png?raw=true")},
-  {id: 2, title: "Стикеры", description: "Стикеры, которые я нахожу в родном городе", user_id: 9, cover: URI.open("https://github.com/qeugens/stuchkiss/blob/main/public/images/novosibirsk.png?raw=true")},
-  {id: 3, title: "Упаковка", description: "Красивые упаковки из магазинов", user_id: 9, cover: URI.open("https://github.com/qeugens/stuchkiss/blob/main/public/images/sochi.png?raw=true")}
+  {id: 1, title: "Телефончики", description: "Девайс моих друзей", user_id: 1, cover: URI.open("https://github.com/qeugens/stuchkiss/blob/main/public/images/ufa.png?raw=true")},
+  {id: 2, title: "Стикеры", description: "Стикеры, которые я нахожу в родном городе", user_id: 2, cover: URI.open("https://github.com/qeugens/stuchkiss/blob/main/public/images/novosibirsk.png?raw=true")},
+  {id: 3, title: "Упаковка", description: "Красивые упаковки из магазинов", user_id: 3, cover: URI.open("https://github.com/qeugens/stuchkiss/blob/main/public/images/sochi.png?raw=true")}
   ])
 items = Item.create([
-  {id: 5, geotag: "Новосибирск, Ленинский район", note: "Были с бойфрендом в парке аттракционов", date: "8/10/2022", image: URI.open("https://github.com/qeugens/stuchkiss/blob/main/public/images/novosibirsk.png?raw=true"), collection_id: 1, user_id: 9},
-  {id: 6, geotag: "Уфа, Советская площадь", note: "Прошлась в перерыве по центру и увидела знак", date: "22/12/2022", image: URI.open("https://github.com/qeugens/stuchkiss/blob/main/public/images/ufa.png?raw=true"), collection_id: 2, user_id: 9},
-  {id: 7, geotag: "Сочи, Морской порт", note: "Гуляли с семьей и увидели маленький катерок", date: "2/09/2001", image: URI.open("https://github.com/qeugens/stuchkiss/blob/main/public/images/sochi.png?raw=true"), collection_id: 3, user_id: 9}
+  {id: 5, geotag: "Новосибирск, Ленинский район", note: "Были с бойфрендом в парке аттракционов", date: "8/10/2022", image: URI.open("https://github.com/qeugens/stuchkiss/blob/main/public/images/novosibirsk.png?raw=true"), collection_id: 1, user_id: 1},
+  {id: 6, geotag: "Уфа, Советская площадь", note: "Прошлась в перерыве по центру и увидела знак", date: "22/12/2022", image: URI.open("https://github.com/qeugens/stuchkiss/blob/main/public/images/ufa.png?raw=true"), collection_id: 2, user_id: 2},
+  {id: 7, geotag: "Сочи, Морской порт", note: "Гуляли с семьей и увидели маленький катерок", date: "2/09/2001", image: URI.open("https://github.com/qeugens/stuchkiss/blob/main/public/images/sochi.png?raw=true"), collection_id: 3, user_id: 3}
   ])
 tags = Tag.create([
-  {id: 1, title: "Машины", ispublic: true, user_id: 9},
-  {id: 2, title: "Рисунки", ispublic: true, user_id: 9},
-  {id: 3, title: "Лодки", ispublic: true, user_id: 9}
+  {id: 1, title: "Машины", ispublic: true, user_id: 1},
+  {id: 2, title: "Рисунки", ispublic: true, user_id: 2},
+  {id: 3, title: "Лодки", ispublic: true, user_id: 3}
   ])
 tagselecteds = Tagselected.create([
   {id: 1, tag_id: 1, item_id: 5},
@@ -81,15 +88,15 @@ tagselecteds = Tagselected.create([
 #   {id: 3, user_id: 4, item_id: 3}
 #   ])
 reportits = Reportit.create([
-  {id: 1, user_id: 9, item_id: 5, number: 'S203-030623', reason: 'Контент для взрослых', object:'Фотография'},
-  {id: 2, user_id: 9, item_id: 5, number: 'S203-030623', reason: 'Ложная информация', object:'Tэг'},
-  {id: 3, user_id: 9, item_id: 7, number: 'S203-030623', reason: 'Спам', object:'Описание'}
+  {id: 1, user_id: 4, item_id: 5, number: 'S203-030623', reason: 'Контент для взрослых', object:'Фотография'},
+  {id: 2, user_id: 5, item_id: 5, number: 'S203-030623', reason: 'Ложная информация', object:'Tэг'},
+  {id: 3, user_id: 6, item_id: 7, number: 'S203-030623', reason: 'Спам', object:'Описание'}
   ])
 
 reportcols = Reportcol.create([
-  {id: 1, user_id: 9, collection_id: 1, number: 'S203-030623', reason: 'Контент для взрослых', object:'Описание'},
-  {id: 2, user_id: 9, collection_id: 1, number: 'S203-030623', reason: 'Ложная информация', object:'Штучкисы'},
-  {id: 3, user_id: 9, collection_id: 3, number: 'S203-030623', reason: 'Спам', object:'Описание'}
+  {id: 1, user_id: 7, collection_id: 1, number: 'S203-030623', reason: 'Контент для взрослых', object:'Описание'},
+  {id: 2, user_id: 8, collection_id: 1, number: 'S203-030623', reason: 'Ложная информация', object:'Штучкисы'},
+  {id: 3, user_id: 4, collection_id: 3, number: 'S203-030623', reason: 'Спам', object:'Описание'}
  ])
 
 puts "End"
