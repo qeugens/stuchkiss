@@ -17,7 +17,7 @@ User.destroy_all
 Reportit.destroy_all
 Reportcol.destroy_all
 users = User.create([
-  {id: 9, username: "qeugens", email: "qeugens@hse.ru", isadmin: true, description: "я убью себя самого", avatar: URI.open("https://github.com/qeugens/stuchkiss/blob/main/public/images/avatar_Masha.png?raw=true"), password: "yourPassWord"}
+  {id: 9, username: "qeugens", email: "qeugens@hse.ru", isadmin: true, description: "я убью себя самого", avatar: URI.open("https://github.com/qeugens/stuchkiss/blob/main/public/images/avatar.png?raw=true"), password: "yourPassWord"}
   ])
 collections = Collection.create([
   {id: 1, title: "Телефончики", description: "Девайс моих друзей", user_id: 9, cover: URI.open("https://github.com/qeugens/stuchkiss/blob/main/public/images/ufa.png?raw=true")},
